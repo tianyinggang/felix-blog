@@ -1,0 +1,46 @@
+---
+title: Hello World - First Blog Post
+description: This is my first post on my new portfolio site, built with Next.js, ContentLayer, and TailwindCSS.
+date: 2023-01-01
+tags: [next.js, web development, react]
+image: /api/placeholder/1200/630
+---
+
+# Hello World!
+
+Welcome to my first blog post on my newly built portfolio website. I'm excited to share my thoughts on web development, design, and various programming topics.
+
+## Why I Built This Site
+
+Building this portfolio site has been a great learning experience. I wanted to create a platform where I could showcase my projects and share my knowledge through blog posts.
+
+Here are some of the technologies I used:
+
+- **Next.js 14** - For a fast, SEO-friendly React framework with the new App Router
+- **ContentLayer** - For managing MDX content
+- **TailwindCSS** - For styling
+- **TypeScript** - For type safety
+- **Framer Motion** - For smooth animations
+
+## Code Example
+
+Here's a simple React component using TypeScript:
+
+```tsx
+import { useState } from 'react';
+
+interface CounterProps {
+  initialCount: number;
+}
+
+export function Counter({ initialCount = 0 }: CounterProps) {
+  const [count, setCount] = useState(initialCount);
+  
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </div>
+  );
+}
