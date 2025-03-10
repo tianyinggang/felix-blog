@@ -32,3 +32,115 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
+import { Metadata } from "next";
+
+export interface Meta {
+  description?: string;
+  author?: string;
+  siteName?: string;
+  coverImage?: string;
+  coverImageAlt?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  type?: string;
+}
+
+type MetadataProps = {
+  title: string;
+  meta?: Meta;
+  url?: string;
+};
+
+export function generateMetadata({
+  title,
+  url = `${process.env.NEXT_PUBLIC_URL}/blog`,
+  meta,
+}: MetadataProps): Metadata {
+  let author = "Sat Naing";
+  let description =
+    "Articles about programming, coding, technologies, software engineering, my personal projects and my experiences.";
+  let siteName = "Sat Naing's Blog";
+  let type = "article";
+  let coverImage: string | undefined;
+  let coverImageAlt: string | undefined;
+  let ogImage: string | undefined;
+  let ogImageAlt: string | undefined;
+
+  if (meta) {
+    author = meta.author ? meta.author : author;
+    description = meta.description ? meta.description : description;
+    siteName = meta.siteName ? meta.siteName : siteName;
+    type = meta.type ? meta.type : type;
+    coverImage = meta.coverImage && meta.coverImage;
+    coverImageAlt = meta.coverImageAlt && meta.coverImageAlt;
+    ogImage = meta.ogImage && meta.ogImage;
+    ogImageAlt = meta.ogImageAlt && meta.ogImageAlt;
+  }
+
+  let appOgImage = `${process.env.NEXT_PUBLIC_URL}/satnaing-blog-og.png`;
+  let appOgImageAlt = "Sat Naing's Blog";
+
+  if (ogImage) {
+    appOgImage = ogImage;
+  } else if (!ogImage && coverImage) {
+    appOgImage = coverImage;
+  }
+
+  if (ogImageAlt) {
+    appOgImageAlt = ogImageAlt;
+  } else if (!ogImageAlt && coverImageAlt) {
+    appOgImageAlt = coverImageAlt;
+  }
+
+  return {
+    title,
+    authors: [{ name: author }],
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: appOgImage,
+          alt: appOgImageAlt,
+        },
+      ],
+      url,
+      siteName,
+      type,
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [
+        {
+          url: appOgImage,
+          alt: appOgImageAlt,
+        },
+      ],
+    },
+  };
+}
+
+// 这个函数可以在多个页面中使用来生成元数据
+export default generateMetadata;
+
+
+// components/SkipToMain.tsx
+'use client'; // 确保这是客户端组件
+
+const SkipToMain: React.FC = () => {
+  return (
+    <a
+      role="button"
+      className={`py-2 px-3 absolute left-2 opacity-95 outline-marrsgreen dark:outline-carrigreen rounded-b-lg transition-transform -translate-y-52 focus:transform focus:translate-y-0 lg:text-xl z-50 bg-marrsgreen dark:bg-carrigreen text-textlight dark:text-bgdark`}
+      href="#main"
+    >
+      Skip to main content
+    </a>
+  );
+};
+
+export default SkipToMain;
