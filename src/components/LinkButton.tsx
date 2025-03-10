@@ -1,5 +1,4 @@
 import { FC } from "react";
-import clsx from "clsx";
 
 type Props = {
   href: string;
@@ -19,14 +18,14 @@ const LinkButton: FC<Props> = ({
   return (
     <a
       role="button"
-      className={clsx(
+      className={[
         outline
-          ? "border border-marrsgreen hover:bg-marrsgreen dark:border-carrigreen dark:hover:bg-carrigreen text-marrsgreen hover:text-cardlight dark:text-carrigreen dark:hover:text-carddark transition"
-          : "bg-marrsgreen hover:bg-marrslight active:bg-marrsdark dark:hover:bg-carrilight dark:active:bg-carridark dark:bg-carrigreen text-bglight dark:text-bgdark",
+          ? "border border-brandPrimary hover:bg-brandPrimary dark:border-brandAccentLight dark:hover:bg-brandAccentLight text-brandPrimary hover:text-cardlight dark:text-brandAccentLight dark:hover:text-carddark transition"
+          : "bg-brandPrimary hover:bg-marrslight active:bg-marrsdark dark:hover:bg-carrilight dark:active:bg-carridark dark:bg-brandAccentLight text-backgroundLight dark:text-backgroundDark",
         "py-2 px-3 rounded lg:text-xl",
         className,
-        "outline-marrsgreen dark:outline-carrigreen focus-visible:outline-double outline-offset-2"
-      )}
+        "outline-brandPrimary dark:outline-brandAccentLight focus-visible:outline-double outline-offset-2"
+      ].filter(Boolean).join(" ")}      
       href={href}
       target={targetBlank ? "_blank" : "_self"}
       rel={targetBlank ? "noopener noreferrer" : undefined} // Security measure
