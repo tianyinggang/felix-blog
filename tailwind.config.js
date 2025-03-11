@@ -2,10 +2,8 @@
 module.exports = {
     darkMode: 'class',
     content: [
-      "./app/**/*.{js,ts,jsx,tsx,mdx}",
-      "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-      "./components/**/*.{js,ts,jsx,tsx,mdx}",
-      "./sections/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/**/*.{css}"
     ],
     theme: {
       screens: {
@@ -16,37 +14,36 @@ module.exports = {
         xl: '1440px',
       },
       fontFamily: {
-        sans: ["var(--font-jost)", "sans-serif"],
-      },      
+        sans: ["var(--font-jost)", "sans-serif"], // 匹配 Jost 的 CSS 变量
+      },     
       extend: {
         colors: {
           // 基础背景色
-          backgroundLight: "#F6F6F6", // 浅灰
-          backgroundDark: "#000000",  // 纯黑
+          bglight: "#F6F6F6", // 浅灰 backgroundLight
+          bgdark: "#000000",  // 纯黑 backgroundDark
   
           // 品牌主色系
           brandAccentLight: "#00739d", // 辅助蓝
-          brandPrimary: "#006DAE",     // Monash 主蓝
-          brandAccentDark: "#3c3c3c",  // 深灰
+          brandprimary: "#006DAE",     // Monash 主蓝brand Primary
+          brandaccentdark: "#3c3c3c",  // 深灰 brandAccentDark
   
           // 卡片系统
-          cardBackgroundLight: "#FFFFFF", // 纯白
-          cardBackgroundDark: "#505050",  // 中灰
+          cardlight: "#FFFFFF", // 纯白
+          carddark: "#505050",  // 中灰
   
           // 功能色
-          functionalLight: "#F6F6F6",     // 浅灰
-          functionalAccent: "#00739d",    // 辅助蓝
+          funclight: "#F6F6F6",     // 浅灰
+          funcaccent: "#00739d",    // 辅助蓝 functional Accent
           functionalAccentDark: "#3c3c3c", // 深灰
   
           // 文字系统
           textPrimary: "#3c3c3c",  // 深灰
-          textSecondary: "#F6F6F6", // 浅灰
+          textlight: "#F6F6F6", // 浅灰
         },
       },
     },
     plugins: [
       require("@tailwindcss/typography"),
-      require("@tailwindcss/line-clamp"),
       require("@tailwindcss/forms"),
     ],
   };

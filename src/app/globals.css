@@ -1,20 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
+@config "../../tailwind.config.js";
 @layer base {
   html {
     @apply scroll-smooth overflow-y-scroll;
   }
 
-  body {
-    @apply font-sans;
-  }
-
   /* ===== 自定义滚动条 ===== */
   /* 宽度 */
   ::-webkit-scrollbar {
-    @apply w-3;
+    @apply w-3; /* 确保这个类存在 */
   }
 
   /* 轨道 */
@@ -41,10 +35,10 @@
     @apply text-2xl md:text-3xl xl:text-4xl inline-block my-6 font-medium;
   }
   .link-outline {
-    @apply outline-marrsgreen dark:outline-carrigreen;
+    @apply outline-brandprimary dark:outline-funcaccent;
   }
   .link {
-    @apply outline-marrsgreen dark:outline-carrigreen text-marrsdark hover:text-marrsgreen dark:text-carrilight dark:hover:text-carrigreen;
+    @apply outline-brandprimary dark:outline-funcaccent text-brandaccentdark hover:text-brandprimary dark:text-funclight dark:hover:text-funcaccent;
   }
   .blog-main {
     @apply mb-20 mt-16 min-h-[70vh];
@@ -53,10 +47,10 @@
     @apply py-8 px-4 sm:px-8 md:px-20 max-w-4xl mx-auto;
   }
   .glassmorphism {
-    @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 dark:bg-opacity-60;
+    @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-[50%] dark:bg-[60%];
   }
   .lower-glassmorphism {
-    @apply bg-opacity-50 dark:bg-opacity-60 after:backdrop-blur-xl after:w-full after:h-full after:absolute after:top-0 after:left-0 after:-z-10;
+    @apply bg-[50%] dark:bg-[60%] after:backdrop-blur-xl after:w-full after:h-full after:absolute after:top-0 after:left-0 after:-z-10;
   }
 }
 
@@ -84,7 +78,7 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  @apply dark:text-carrigreen;
+  @apply dark:text-funcaccent;
 }
 .swiper-button-prev,
 .swiper-button-next {

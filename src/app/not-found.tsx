@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import LinkButton from "@/components/LinkButton";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Sat Naing - 404 Page Not Found",
@@ -14,10 +15,10 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
   return (
-    <div className="bg-backgroundLight dark:bg-backgroundDark overflow-hidden">
-      <div className="h-screen flex flex-col justify-center selection:bg-brandPrimary selection:text-backgroundLight dark:selection:bg-brandAccentLight dark:selection:text-backgroundDark">
+    <div className="bg-bglight dark:bg-bgdark overflow-hidden">
+      <div className="h-screen flex flex-col justify-center selection:bg-brandprimary selection:text-bglight dark:selection:bg-funcaccent dark:selection:text-bgdark">
         <div className="flex justify-center items-center flex-col mt-auto">
-          <h1 className="text-8xl xs:text-9xl font-bold text-brandPrimary dark:text-brandAccentLight">
+          <h1 className="text-8xl xs:text-9xl font-bold text-brandprimary dark:text-funcaccent">
             404
           </h1>
           <div className="text-lg xs:text-2xl my-2">
@@ -31,9 +32,12 @@ const NotFound = () => {
             <LinkButton href="/" outline>
               Go back Home
             </LinkButton>
-            <LinkButton href="/blog" outline>
-              Go to Blog
-            </LinkButton>
+            <Link
+                href="/blog"
+                className="link flex items-center px-4 lg:text-xl hover:underline"
+              >
+                Go to Blog
+              </Link>
           </div>
         </div>
         <Footer noPadding />

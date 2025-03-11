@@ -20,11 +20,11 @@ const LinkButton: FC<Props> = ({
       role="button"
       className={[
         outline
-          ? "border border-brandPrimary hover:bg-brandPrimary dark:border-brandAccentLight dark:hover:bg-brandAccentLight text-brandPrimary hover:text-cardlight dark:text-brandAccentLight dark:hover:text-carddark transition"
-          : "bg-brandPrimary hover:bg-marrslight active:bg-marrsdark dark:hover:bg-carrilight dark:active:bg-carridark dark:bg-brandAccentLight text-backgroundLight dark:text-backgroundDark",
+          ? "border border-brandprimary hover:bg-brandprimary dark:border-funcaccent dark:hover:bg-funcaccent text-brandprimary hover:text-cardLight dark:text-funcaccent dark:hover:text-carddark transition"
+          : "bg-brandprimary hover:bg-marrslight active:bg-brandaccentdark dark:hover:bg-funclight dark:active:bg-carridark dark:bg-funcaccent text-bglight dark:text-bgdark",
         "py-2 px-3 rounded lg:text-xl",
         className,
-        "outline-brandPrimary dark:outline-brandAccentLight focus-visible:outline-double outline-offset-2"
+        "outline-brandprimary dark:outline-funcaccent focus-visible:outline-double outline-offset-2"
       ].filter(Boolean).join(" ")}      
       href={href}
       target={targetBlank ? "_blank" : "_self"}
