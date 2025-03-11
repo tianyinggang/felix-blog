@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+@layer base {
+  html {
+    @apply scroll-smooth overflow-y-scroll;
+  }
+
+  /* ===== 自定义滚动条 ===== */
+  /* 宽度 */
+  ::-webkit-scrollbar {
+    @apply w-3; /* 确保这个类存在 */
+  }
+
+  /* 轨道 */
+  ::-webkit-scrollbar-track {
+    @apply bg-bglight dark:bg-bgdark;
+  }
+
+  /* 滑块 */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#d5d5d5] dark:bg-carddark;
+  }
+
+  /* 滑块悬停 */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#b7b7b7] dark:bg-[#17222b];
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-11 md:pt-16 lg:pt-20 px-4 sm:px-8 md:px-20 max-w-6xl mx-auto lg:min-h-[768px];
+  }
+  .section-heading {
+    @apply text-2xl md:text-3xl xl:text-4xl inline-block my-6 font-medium;
+  }
+  .link-outline {
+    @apply outline-brandprimary dark:outline-funcaccent;
+  }
+  .link {
+    @apply outline-brandprimary dark:outline-funcaccent text-brandaccentdark hover:text-brandprimary dark:text-funclight dark:hover:text-funcaccent;
+  }
+  .blog-main {
+    @apply mb-20 mt-16 min-h-[70vh];
+  }
+  .blog-section {
+    @apply py-8 px-4 sm:px-8 md:px-20 max-w-4xl mx-auto;
+  }
+  .glassmorphism {
+    @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-[50%] dark:bg-[60%];
+  }
+  .lower-glassmorphism {
+    @apply bg-[50%] dark:bg-[60%] after:backdrop-blur-xl after:w-full after:h-full after:absolute after:top-0 after:left-0 after:-z-10;
+  }
+}
+
+@layer utilities {
+  .swiper-padding {
+    padding: 0 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .swiper-padding-mobile {
+    padding: 0 !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+/* Swiper 样式 */
+.swiper-pagination-bullet {
+  @apply dark:bg-gray-200;
+}
+.dark .swiper-pagination-bullet-active {
+  background-color: rgb(5 206 145) !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: rgb(0 140 140) !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply dark:text-funcaccent;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgb(0 140 140) !important;
+}
+@media only screen and (max-width: 480px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}
